@@ -77,7 +77,7 @@ def model_name(arrow_client_runtime: AuthenticatedArrowClient, sample_graph: Gra
         model_save_name=model_save_name,
     )
     yield model_save_name
-    ModelCatalogArrowEndpoints(arrow_client_runtime).delete(model_save_name)
+    ModelCatalogArrowEndpoints(arrow_client_runtime).delete(model_save_name, fail_if_missing=True)
 
 
 @pytest.fixture
